@@ -1,0 +1,33 @@
+El archivo "package.json" guarda informacion del proyecto, dependendias (tanto en modo desarrollo como en produccion), scripts, testeos.
+
+Crear proyecto en node y crear el archivo "package.json:
+
+		npm init -y
+		
+Instalar dependendias del registro central de paquetes.
+	
+	npm install (dependendencia)
+	
+	*Si va a ser una dependendencia que solo se va a ejecutar en el ambiente de desarrollo poner "-D" antes de la dependendencia
+	
+	npm install -D (dependendencia)
+	
+En el apartado de Scripts dentro del package.json:
+
+	Para ejecutar el cod cada vez que guardamos luego de haber instalador la dependecia "nodemon":
+	
+		"dev":"nodemon (ruta_archivo)"
+	
+	Cuando vayamos a terminal:
+		
+		npm run dev
+		
+		*Siempre que no sea un Script incluido por defecto en node (start, etc) utilizamos "run".
+		
+Van a ver dependecias que no queremos que se suban al reposotirio git. Para evitar subirlas:
+
+	Crear el archivo ".gitignore" y agregar la carpeta "node-modules".
+	
+importar dependecias:
+
+	require("lodash")   *Lo busca en la carpeta node_modules
