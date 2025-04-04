@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":"nodemon pruebas.js",
+    "dev": "nodemon pruebas.js",
     "start": "node pruebas.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +14,7 @@
     "nodemon": "^3.1.9"
   },
   "dependencies": {
+    "express": "^5.1.0",
     "lodash": "^4.17.21"
   }
 }
