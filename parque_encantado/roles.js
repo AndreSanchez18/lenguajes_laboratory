@@ -1,9 +1,10 @@
 class Guardian  {
+    
     extra(){return 100}
-    esExtraordinaria(obj){
-        return obj.poder_magico > 50 ? true : false
+    esExtraordinaria(criatura){
+        return criatura.poder_magico > 50 ? true : false
     }
-    siguiente_rol(){
+    siguienteRol(){
         const mascota = new MascotaMitologica(1,false)
         let mascotas = [mascota]
         return new Domador(mascotas)
@@ -12,34 +13,35 @@ class Guardian  {
 
 class Hechicero {
     extra(){return 0}
-    esExtraordinaria(obj){
+    esExtraordinaria(criatura){
         return true 
     }
-    siguiente_rol(obj){
+    siguienteRol(obj){
         return new Guardian
     }
 }
 
 class Domador  {
 
-    constructor(mascotas_mitologicas){
+    constructor(mascotas_mitologicas=[]){
         this.mascotas_mitologicas = mascotas_mitologicas
+        
     }
 
-    addMascotaMitologica(edad, cuernos){
-        this.mascotas_mitologicas.push(new MascotaMitologica(edad, cuernos))
+    addMascotaMitologica(mascota){
+        this.mascotas_mitologicas.push(mascota)
     }
 
     todasMascotasVeteranas(){
-        return this.mascotas_mitologicas.every(x=>x.esVeterana())
+        return this.mascotas_mitologicas.length && this.mascotas_mitologicas.every(x=>x.esVeterana())
     }
 
     extra(){return 150*this.mascotas_mitologicas.length}
-    esExtraordinaria(obj){
-        return obj.poder_magico > 15 && this.todasMascotasVeteranas() ? true : false           
+    esExtraordinaria(criatura){
+        return criatura.poder_magico > 15 && this.todasMascotasVeteranas() ? true : false           
     }
 
-    siguiente_rol(){
+    siguienteRol(){
         const tieneMascotaConCuernos = this.mascotas_mitologicas.some(m => m.getTieneCuernos())
         return tieneMascotaConCuernos ? new Hechicero : false
     }
@@ -60,4 +62,4 @@ class MascotaMitologica {
 }
 
 
-module.exports = {Guardian, Hechicero, Domador}
+module.exports = {Guardian, Hechicero, Domador, MascotaMitologica}

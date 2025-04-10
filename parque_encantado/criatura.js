@@ -6,10 +6,10 @@ class Criatura {
     constructor(poder_magico, astucia, rol){
         this.poder_magico = poder_magico
         this.astucia = astucia
-        this.rol = new rol 
+        this.rol = rol 
     }
 
-    PoderOfensivo(){ 
+    poderOfensivo(){ 
             return this.poder_magico*10+this.rol.extra()
     }
 
@@ -18,8 +18,8 @@ class Criatura {
     }
 
     cambiarRol(){
-        if (this.rol.siguiente_rol()){
-            this.rol = this.rol.siguiente_rol()
+        if (this.rol.siguienteRol()){
+            this.rol = this.rol.siguienteRol()
         } else{console.log("Ritual cancelado")}
     }
     
